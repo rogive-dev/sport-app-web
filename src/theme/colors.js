@@ -24,6 +24,19 @@ export const neutral = {
   900: '#111927',
 };
 
+export const gray = {
+  50: '#fefefe',
+  100: '#fbfcfd',
+  200: '#f9fafc',
+  300: '#f6f8fb',
+  400: '#f4f7fa',
+  500: '#f1f5f9',
+  600: '#dbdfe3',
+  700: '#abaeb1',
+  800: '#858789',
+  900: '#656769',
+};
+
 export const blue = withAlphas({
   lightest: '#F5F8FF',
   light: '#EBEFFF',
@@ -39,6 +52,15 @@ export const green = withAlphas({
   main: '#16B364',
   dark: '#087443',
   darkest: '#084C2E',
+  contrastText: '#FFFFFF',
+});
+
+export const orange = withAlphas({
+  lightest: '#fdd4b7',
+  light: '#fba163',
+  main: '#f97316',
+  dark: '#b15210',
+  darkest: '#693009',
   contrastText: '#FFFFFF',
 });
 

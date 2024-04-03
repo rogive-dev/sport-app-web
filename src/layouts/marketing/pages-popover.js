@@ -16,8 +16,8 @@ const sections = [
   {
     items: [
       {
-        title: 'Dashboard',
-        path: '/dashboard',
+        title: 'Registro',
+        path: '/registro',
         icon: (
           <SvgIcon fontSize="small">
             <HomeSmileIcon />

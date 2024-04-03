@@ -5,7 +5,7 @@ export const defaultSettings = {
   contrast: 'normal',
   direction: 'ltr',
   layout: 'vertical',
-  navColor: 'evident',
+  navColor: 'blend-in',
   paletteMode: 'light',
   responsiveFontSizes: true,
   stretch: false,
