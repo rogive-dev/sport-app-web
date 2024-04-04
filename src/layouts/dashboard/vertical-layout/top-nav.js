@@ -6,9 +6,8 @@ import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import SvgIcon from '@mui/material/SvgIcon';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Typography from '@mui/material/Typography';
 
-import { AccountButton } from '../account-button';
-import { ContactsButton } from '../contacts-button';
 import { LanguageSwitch } from '../language-switch';
 import { NotificationsButton } from '../notifications-button';
 
@@ -17,7 +16,7 @@ const SIDE_NAV_WIDTH = 280;
 
 export const TopNav = (props) => {
   const { onMobileNavOpen, ...other } = props;
-  const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'));
+  const username = "Martina";
 
   return (
     <Box
@@ -48,27 +47,19 @@ export const TopNav = (props) => {
         }}
       >
         <Stack
-          alignItems="center"
-          direction="row"
-          spacing={2}
+          alignItems="start"
+          direction="column"
         >
-          {!lgUp && (
-            <IconButton onClick={onMobileNavOpen}>
-              <SvgIcon>
-                <Menu01Icon />
-              </SvgIcon>
-            </IconButton>
-          )}
+          <Typography variant="h7">Bienvenido</Typography>
+          <Typography variant="h6">{username}!</Typography>
         </Stack>
         <Stack
           alignItems="center"
           direction="row"
           spacing={2}
         >
-          <LanguageSwitch />
           <NotificationsButton />
-          <ContactsButton />
-          <AccountButton />
+          <LanguageSwitch />
         </Stack>
       </Stack>
     </Box>

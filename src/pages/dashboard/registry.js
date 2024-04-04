@@ -12,6 +12,9 @@ import { Seo } from 'src/components/seo';
 import { usePageView } from 'src/hooks/use-page-view';
 import { useSettings } from 'src/hooks/use-settings';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard';
+import { FoodForm } from 'src/sections/dashboard/registry/food-form';
+import { SportForm } from 'src/sections/dashboard/registry/sport-form';
+import { DemographicForm } from 'src/sections/dashboard/registry/demographic-form';
 
 const tabs = [
   { label: 'Dieta', value: 'dieta' },
@@ -22,6 +25,9 @@ const tabs = [
 const Page = () => {
   const settings = useSettings();
   const [currentTab, setCurrentTab] = useState('dieta');
+  const foodPreferences = null;
+  const sportPreferences = null;
+  const demographicPreferences = null;
 
   usePageView();
 
@@ -49,17 +55,6 @@ const Page = () => {
               lg: 4,
             }}
           >
-            <Grid xs={12}>
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                spacing={4}
-              >
-                <div>
-                  <Typography variant="h4">Registro</Typography>
-                </div>
-              </Stack>
-            </Grid>
             <Grid
               xs={12}
             >
@@ -88,9 +83,7 @@ const Page = () => {
                   justifyContent="space-between"
                   spacing={4}
                 >
-                  <div>
-                    <Typography variant="h6">Dieta</Typography>
-                  </div>
+                  <FoodForm data={foodPreferences} />
                 </Stack>
               </Grid>
             )}
@@ -101,9 +94,7 @@ const Page = () => {
                   justifyContent="space-between"
                   spacing={4}
                 >
-                  <div>
-                    <Typography variant="h6">Deporte</Typography>
-                  </div>
+                  <SportForm data={sportPreferences} />
                 </Stack>
               </Grid>
             )}
@@ -114,9 +105,7 @@ const Page = () => {
                   justifyContent="space-between"
                   spacing={10}
                 >
-                  <div>
-                    <Typography variant="h6">Demografico</Typography>
-                  </div>
+                  <DemographicForm data={demographicPreferences} />
                 </Stack>
               </Grid>
             )}

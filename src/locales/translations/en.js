@@ -46,7 +46,9 @@ export const en = {
   [tokens.nav.profile]: 'Profile',
   [tokens.nav.register]: 'Register',
   [tokens.nav.registry]: 'Registry',
+  [tokens.nav.reports]: 'Reports',
   [tokens.nav.resetPassword]: 'Reset Password',
   [tokens.nav.socialMedia]: 'Social Media',
+  [tokens.nav.trainingPlan]: 'Training Plan',
   [tokens.nav.verifyCode]: 'Verify Code',
 };

@@ -48,8 +48,10 @@ export const tokens = {
     profile: 'nav.profile',
     register: 'nav.register',
     registry: 'nav.registry',
+    reports: 'nav.reports',
     resetPassword: 'nav.resetPassword',
     socialMedia: 'nav.socialMedia',
+    trainingPlan: 'nav.trainingPlan',
     verifyCode: 'nav.verifyCode',
   },
 };

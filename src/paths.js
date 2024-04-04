@@ -48,6 +48,9 @@ export const paths = {
   },
   dashboard: {
     index: '/registro',
+    registry: '/dashboard/registry',
+    reports: '/dashboard/reports',
+    trainingPlan: '/dashboard/training-plan',
     academy: {
       index: '/dashboard/academy',
       courseDetails: '/dashboard/academy/courses/:courseId',

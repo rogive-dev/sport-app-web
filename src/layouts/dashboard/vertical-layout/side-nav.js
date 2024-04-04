@@ -9,7 +9,7 @@ import SvgIcon from '@mui/material/SvgIcon';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 
-import { Logo } from 'src/components/logo';
+import { Logo } from 'src/components/sport-app-logo';
 import { RouterLink } from 'src/components/router-link';
 import { Scrollbar } from 'src/components/scrollbar';
 import { usePathname } from 'src/hooks/use-pathname';
@@ -184,26 +184,21 @@ export const SideNav = (props) => {
           <Stack
             alignItems="center"
             direction="row"
-            spacing={2}
             sx={{ p: 3 }}
           >
+            <TenantSwitch sx={{ flexGrow: 1 }} />
             <Box
               component={RouterLink}
-              href={paths.index}
+              href={paths.dashboard.registry}
               sx={{
-                borderColor: 'var(--nav-logo-border)',
-                borderRadius: 1,
-                borderStyle: 'solid',
-                borderWidth: 1,
                 display: 'flex',
-                height: 40,
-                p: '4px',
-                width: 40,
+                height: 50,
+                width: 50,
+                marginRight: '32px',
               }}
             >
               <Logo />
             </Box>
-            <TenantSwitch sx={{ flexGrow: 1 }} />
           </Stack>
           <Stack
             component="nav"

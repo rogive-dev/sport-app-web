@@ -25,16 +25,10 @@ export const TenantSwitch = (props) => {
       >
         <Box sx={{ flexGrow: 1 }}>
           <Typography
-            color="inherit"
-            variant="h6"
+            color="primary"
+            variant="h3"
           >
             SportApp
-          </Typography>
-          <Typography
-            color="neutral.400"
-            variant="body2"
-          >
-            Production
           </Typography>
         </Box>
       </Stack>

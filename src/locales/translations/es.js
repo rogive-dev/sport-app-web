@@ -46,7 +46,9 @@ export const es = {
   [tokens.nav.profile]: 'Perfil',
   [tokens.nav.register]: 'Registrarse',
   [tokens.nav.registry]: 'Registro',
+  [tokens.nav.reports]: 'Reportes',
   [tokens.nav.resetPassword]: 'Restablecer Contraseña',
   [tokens.nav.socialMedia]: 'Redes Sociales',
+  [tokens.nav.trainingPlan]: 'Plan de Entrenamiento',
   [tokens.nav.verifyCode]: 'Verificar Código',
 };
