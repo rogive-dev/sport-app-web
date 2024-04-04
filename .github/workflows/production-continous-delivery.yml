@@ -1,0 +1,50 @@
+name: Continuous Delivery - Production
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Unit Tests
+        run: npm test -- --coverage
+
+      - name: Check Test Coverage
+        run: |
+          totalStatements=$(jq -r '[.[] | .statementMap | length] | add' coverage/coverage-final.json)
+          coveredStatements=$(jq -r '[.[] | .s[]] | add' coverage/coverage-final.json)
+          coveragePercentage=$(bc -l <<< "scale=2; ($coveredStatements / $totalStatements) * 100")
+          echo "Total statements: $totalStatements"
+          echo "Covered statements: $coveredStatements"
+          echo "Coverage is $coveragePercentage%"
+          if (( $(bc -l <<< "$coveragePercentage < 70") )); then
+            echo "Coverage is below threshold"
+            exit 1
+          fi
+
+      - name: Build
+        run: npm run prod
+
+  deploy-production:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
