@@ -44,6 +44,7 @@ const Page = () => {
           backgroundColor: 'neutral.100',
           flexGrow: 1,
           py: 8,
+          paddingTop: '32px'
         }}
       >
         <Container maxWidth={settings.stretch ? false : 'xl'}>
@@ -62,9 +63,39 @@ const Page = () => {
                 indicatorColor="primary"
                 onChange={handleTabsChange}
                 scrollButtons="auto"
+                TabIndicatorProps={{
+                  style: { display: 'none' }
+                }}
                 textColor="primary"
                 value={currentTab}
                 variant="scrollable"
+                sx={{
+                  '& .css-heg063-MuiTabs-flexContainer': {
+                    justifyContent: 'center',
+                    '& > .css-1uhvit7-MuiButtonBase-root-MuiTab-root:first-child': {
+                      borderRadius: '50px 0 0 50px',
+                    },
+                    '& > .css-1uhvit7-MuiButtonBase-root-MuiTab-root:last-child': {
+                      borderRadius: '0 50px 50px 0',
+                    },
+                  },
+                  '& .css-1uhvit7-MuiButtonBase-root-MuiTab-root': {
+                    width: '250px',
+                    border: 'solid 1px #656769',
+                    backgroundColor: 'white',
+                    height: '33px',
+                    minHeight: '33px',
+                    boxShadow: '3px 3px 3px #ABAEB1',
+                  },
+                  '& .css-1uhvit7-MuiButtonBase-root-MuiTab-root.Mui-selected': {
+                    backgroundColor: '#f97316',
+                    border: 'solid 1px #f97316',
+                    color: 'white'
+                  },
+                  '& .css-1uhvit7-MuiButtonBase-root-MuiTab-root+.css-1uhvit7-MuiButtonBase-root-MuiTab-root': {
+                    marginLeft: '0px'
+                  },
+                }}
               >
                 {tabs.map((tab) => (
                   <Tab
@@ -80,7 +111,7 @@ const Page = () => {
               <Grid xs={12}>
                 <Stack
                   direction="row"
-                  justifyContent="space-between"
+                  justifyContent="center"
                   spacing={4}
                 >
                   <FoodForm data={foodPreferences} />

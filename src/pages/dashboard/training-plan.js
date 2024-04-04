@@ -6,7 +6,6 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Stack from '@mui/material/Stack';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import { Document, Page as PageUI } from 'react-pdf';
 
 import { Seo } from 'src/components/seo';
 import { usePageView } from 'src/hooks/use-page-view';
