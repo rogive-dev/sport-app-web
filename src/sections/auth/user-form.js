@@ -88,7 +88,7 @@ export const UserForm = (props) => {
           <Grid
             item
             xs={12}
-            sx={{ paddingTop: '24px' }}
+            sx={{ paddingTop: '40px' }}
           >
             <TextField
               error={!!(formik.touched.name && formik.errors.name)}
@@ -238,32 +238,6 @@ export const UserForm = (props) => {
             />
           </Grid>
         </Grid>
-        <Box
-          sx={{
-            alignItems: 'center',
-            display: 'flex',
-            ml: -1,
-            mt: 1,
-          }}
-        >
-          <Checkbox
-            checked={formik.values.policy}
-            name="policy"
-            onChange={formik.handleChange}
-          />
-          <Typography
-            color="text.secondary"
-            variant="body2"
-          >
-            I have read the{' '}
-            <Link
-              component="a"
-              href="#"
-            >
-              Terms and Conditions
-            </Link>
-          </Typography>
-        </Box>
         {!!(formik.touched.policy && formik.errors.policy) && (
           <FormHelperText error>{formik.errors.policy}</FormHelperText>
         )}
@@ -275,16 +249,23 @@ export const UserForm = (props) => {
             {formik.errors.submit}
           </FormHelperText>
         )}
-        <Button
-          disabled={formik.isSubmitting}
-          fullWidth
-          size="large"
-          sx={{ mt: 2 }}
-          type="submit"
-          variant="contained"
+        <Stack
+            alignItems="center"
+            justifyContent="center"
+            direction="row"
+            sx={{ p: 3, padding: 0, marginTop: '20px' }}
         >
-          Register
-        </Button>
+          <Button
+            disabled={formik.isSubmitting}
+            fullWidth
+            size="large"
+            type="submit"
+            variant="contained"
+            sx={{ mt: 2, width: '224px', height: '53px', borderRadius: '8px'}}
+          >
+            Register
+          </Button>
+        </Stack>
       </form>
       <Stack
         alignItems="center"
@@ -295,6 +276,7 @@ export const UserForm = (props) => {
         <Typography
           color="text.secondary"
           variant="body2"
+          sx={{ marginTop: '0' }}
         >
           ¿Ya posees una cuenta? &nbsp;
           <Link

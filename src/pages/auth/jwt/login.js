@@ -19,6 +19,7 @@ import { useRouter } from 'src/hooks/use-router';
 import { Layout as AuthLayout } from 'src/layouts/auth/classic-layout';
 import { paths } from 'src/paths';
 import { Issuer } from 'src/utils/auth';
+import { gray } from 'src/theme/colors';
 
 const initialValues = {
   email: 'demo@devias.io',
@@ -91,6 +92,14 @@ const Page = () => {
               onChange={formik.handleChange}
               type="email"
               value={formik.values.email}
+              sx={{
+                '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                  backgroundColor: 'white',
+                  border: `solid 1px ${gray[900]}`,
+                  height: '56px',
+                  boxShadow: `3px 3px 3px ${gray[700]}`,
+                },
+              }}
             />
             <TextField
               error={!!(formik.touched.password && formik.errors.password)}
@@ -102,6 +111,14 @@ const Page = () => {
               onChange={formik.handleChange}
               type="password"
               value={formik.values.password}
+              sx={{
+                '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                  backgroundColor: 'white',
+                  border: `solid 1px ${gray[900]}`,
+                  height: '56px',
+                  boxShadow: `3px 3px 3px ${gray[700]}`,
+                },
+              }}
             />
           </Stack>
           {formik.errors.submit && (
@@ -116,13 +133,14 @@ const Page = () => {
             alignItems="center"
             justifyContent="center"
             direction="row"
-            sx={{ p: 3 }}
+            sx={{ p: 3, paddingTop: '120px' }}
           >
             <Button
               disabled={formik.isSubmitting}
               size="large"
               type="submit"
               variant="contained"
+              sx={{ width: '224px', height: '53px', borderRadius: '8px'}}
             >
               Iniciar Sesión
             </Button>

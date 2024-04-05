@@ -15,7 +15,7 @@ import { IssuerGuard } from 'src/guards/issuer-guard';
 import { usePageView } from 'src/hooks/use-page-view';
 import { Layout as AuthLayout } from 'src/layouts/auth/classic-layout';
 import { Issuer } from 'src/utils/auth';
-import { gray } from 'src/theme/colors';
+import { gray,orange } from 'src/theme/colors';
 import { UserForm } from 'src/sections/auth/user-form';
 
 const tabs = [
@@ -39,7 +39,7 @@ const Page = () => {
         alignItems="start"
         justifyContent="start"
         direction="row"
-        sx={{ p: 3, mb: 4, mr: 12 }}
+        sx={{ p: 3, mb: 4, mr: 12, position: 'absolute', top: -15, left: -10 }}
       >
         <CardMedia
           image="/assets/logos/logo-sportapp.svg"
@@ -62,6 +62,7 @@ const Page = () => {
             <Typography
               color="primary"
               variant="h3"
+              sx={{ paddingBottom: '50px', textAlign: 'center' }}
             >
               Crear cuenta
             </Typography>
@@ -86,11 +87,11 @@ const Page = () => {
                   },
                 },
                 '& .css-1uhvit7-MuiButtonBase-root-MuiTab-root': {
-                  width: '250px',
-                  border: `solid 1px ${gray[900]}`,
+                  width: '170px',
+                  border: `solid 1px ${orange.main}`,
                   backgroundColor: 'white',
-                  height: '33px',
-                  minHeight: '33px',
+                  height: '40px',
+                  minHeight: '40px',
                   boxShadow: `3px 3px 3px ${gray[700]}`,
                 },
                 '& .css-1uhvit7-MuiButtonBase-root-MuiTab-root.Mui-selected': {
@@ -111,7 +112,6 @@ const Page = () => {
                 />
               ))}
             </Tabs>
-            <Divider />
           </Grid>
           {currentTab === 'user' && (
             <Grid
