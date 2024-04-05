@@ -9,15 +9,51 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import CardMedia from '@mui/material/CardMedia';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Typography from '@mui/material/Typography';
 
+import { purple, gray } from 'src/theme/colors';
 import { wait } from 'src/utils/wait';
+
+const dietOptions = [
+  {
+    value: "vegano",
+    label: "vegano",
+  },
+  {
+    value: "vegetariano",
+    label: "vegano",
+  },
+  {
+    value: "ninguno",
+    label: "ninguno",
+  }
+];
+
+const foodOptions = [
+  {
+    value: "carnes",
+    label: "carnes",
+  },
+  {
+    value: "ensaladas",
+    label: "ensaladas",
+  },
+  {
+    value: "comidas rápidas",
+    label: "comidasrapidas",
+  }
+];
+
+const weekDays = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 
 export const SportForm = (props) => {
   const { foodPreferences, ...other } = props;
   const formik = useFormik({
     initialValues: {
-      address1: foodPreferences?.address1 || '',
-      address2: foodPreferences?.address2 || '',
+      VO2Max: foodPreferences?.VO2Max || '',
+      FTP: foodPreferences?.FTP || '',
       country: foodPreferences?.country || '',
       email: foodPreferences?.email || '',
       hasDiscount: foodPreferences?.hasDiscount || false,
@@ -28,8 +64,8 @@ export const SportForm = (props) => {
       submit: null,
     },
     validationSchema: Yup.object({
-      address1: Yup.string().max(255),
-      address2: Yup.string().max(255),
+      VO2Max: Yup.string().max(255),
+      FTP: Yup.string().max(255),
       country: Yup.string().max(255),
       email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
       hasDiscount: Yup.bool(),
@@ -54,42 +90,12 @@ export const SportForm = (props) => {
     },
   });
 
-  const dietOptions = [
-    {
-      value: "vegano",
-      label: "vegano",
-    },
-    {
-      value: "vegetariano",
-      label: "vegano",
-    },
-    {
-      value: "ninguno",
-      label: "ninguno",
-    }
-  ];
-
-  const foodOptions = [
-    {
-      value: "carnes",
-      label: "carnes",
-    },
-    {
-      value: "ensaladas",
-      label: "ensaladas",
-    },
-    {
-      value: "comidas rápidas",
-      label: "comidasrapidas",
-    }
-  ];
-
   return (
     <form
       onSubmit={formik.handleSubmit}
       {...other}
     >
-        <CardContent sx={{ width: "800px", pt: 0 }}>
+        <CardContent sx={{ width: "750px", pt: 0,  padding: '0',}}>
           <Grid
             container
             spacing={3}
@@ -98,21 +104,31 @@ export const SportForm = (props) => {
               item
               md={12}
               xs={12}
+              sx={{ paddingTop: '24px' }}
             >
               <CardMedia
                 image="/assets/banners/sport-banner.png"
-                sx={{ height: 150 }}
+                sx={{ height: 150, borderRadius: '12px'}}
               />
             </Grid>
             <Grid
               item
               md={6}
               xs={12}
+              sx={{ paddingTop: '48px' }}
             >
               <TextField
                 fullWidth
-                label="Category"
+                label="Deporte"
                 select
+                sx={{
+                  '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                    backgroundColor: 'white',
+                    border: `solid 1px ${gray[900]}`,
+                    height: '56px',
+                    boxShadow: `3px 3px 3px ${gray[700]}`,
+                  },
+                }}
               >
                 {dietOptions.map((option) => (
                   <MenuItem
@@ -127,27 +143,45 @@ export const SportForm = (props) => {
             <Grid
               xs={12}
               md={6}
+              sx={{ paddingTop: '48px' }}
             >
               <TextField
-                error={!!(formik.touched.address1 && formik.errors.address1)}
+                error={!!(formik.touched.VO2Max && formik.errors.VO2Max)}
                 fullWidth
-                helperText={formik.touched.address1 && formik.errors.address1}
-                label="Address 1"
-                name="address1"
+                helperText={formik.touched.VO2Max && formik.errors.VO2Max}
+                label="VO2 Max"
+                name="VO2Max"
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
-                value={formik.values.address1}
+                value={formik.values.VO2Max}
+                sx={{
+                  '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                    backgroundColor: 'white',
+                    border: `solid 1px ${gray[900]}`,
+                    height: '56px',
+                    boxShadow: `3px 3px 3px ${gray[700]}`,
+                  },
+                }}
               />
             </Grid>
             <Grid
               item
               md={6}
               xs={12}
+              sx={{ paddingTop: '20px' }}
             >
               <TextField
                 fullWidth
-                label="Category"
+                label="Preferencia Horaria"
                 select
+                sx={{
+                  '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                    backgroundColor: 'white',
+                    border: `solid 1px ${gray[900]}`,
+                    height: '56px',
+                    boxShadow: `3px 3px 3px ${gray[700]}`,
+                  },
+                }}
               >
                 {foodOptions.map((option) => (
                   <MenuItem
@@ -162,17 +196,63 @@ export const SportForm = (props) => {
             <Grid
               xs={12}
               md={6}
+              sx={{ paddingTop: '20px' }}
             >
               <TextField
-                error={!!(formik.touched.address2 && formik.errors.address2)}
+                error={!!(formik.touched.FTP && formik.errors.FTP)}
                 fullWidth
-                helperText={formik.touched.address2 && formik.errors.address2}
-                label="Address 2"
-                name="address2"
+                helperText={formik.touched.FTP && formik.errors.FTP}
+                label="FTP"
+                name="FTP"
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
-                value={formik.values.address2}
+                value={formik.values.FTP}
+                sx={{
+                  '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                    backgroundColor: 'white',
+                    border: `solid 1px ${gray[900]}`,
+                    height: '56px',
+                    boxShadow: `3px 3px 3px ${gray[700]}`,
+                  },
+                }}
               />
+            </Grid>
+            <Grid
+              xs={12}
+              md={12}
+              sx={{
+                paddingTop: '30px',
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{
+                  color: 'primary.main',
+                  marginBottom: '20px'
+                }}
+              >
+                Días de entrenamiento
+              </Typography>
+              {weekDays.map((day, index) => (
+                <FormControlLabel
+                  key={`checkbox-day-${index + 1}`}
+                  control={
+                    <Checkbox
+                      sx={{
+                        '&.Mui-checked': {
+                          color: purple.main,
+                        },
+                      }}
+                    />
+                  }
+                  label={day}
+                  labelPlacement='top'
+                  sx={{
+                    color: 'primary.main',
+                    margin: 0
+                  }}
+                />
+              ))}
             </Grid>
           </Grid>
         </CardContent>
@@ -183,12 +263,13 @@ export const SportForm = (props) => {
           }}
           flexWrap="wrap"
           spacing={3}
-          sx={{ p: 3 }}
+          sx={{ p: 3, justifyContent: 'center', paddingTop: '35px' }}
         >
           <Button
             disabled={formik.isSubmitting}
             type="submit"
             variant="contained"
+            sx={{ width: '106px', height: '36px', borderRadius: '8px'}}
           >
             Guardar
           </Button>
