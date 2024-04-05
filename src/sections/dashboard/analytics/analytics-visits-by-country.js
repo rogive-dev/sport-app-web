@@ -24,7 +24,7 @@ import { applySort } from 'src/utils/apply-sort';
 const flagMap = {
   ca: '/assets/flags/flag-ca.svg',
   de: '/assets/flags/flag-de.svg',
-  es: '/assets/flags/flag-es.svg',
+  es: '/assets/flags/flag-co.svg',
   ru: '/assets/flags/flag-ru.svg',
   uk: '/assets/flags/flag-uk.svg',
   us: '/assets/flags/flag-us.svg',

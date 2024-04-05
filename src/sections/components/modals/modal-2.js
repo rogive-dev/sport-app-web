@@ -15,7 +15,7 @@ const languageOptions = [
     label: 'German',
   },
   {
-    icon: '/assets/flags/flag-es.svg',
+    icon: '/assets/flags/flag-co.svg',
     label: 'Spanish',
   },
 ];
