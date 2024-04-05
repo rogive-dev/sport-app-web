@@ -9,6 +9,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import CardMedia from '@mui/material/CardMedia';
+import { gray } from 'src/theme/colors';
 
 import { wait } from 'src/utils/wait';
 
@@ -108,7 +109,7 @@ export const FoodForm = (props) => {
               item
               md={6}
               xs={12}
-              sx={{ paddingTop: '58px' }}
+              sx={{ paddingTop: '48px' }}
             >
               <TextField
                 fullWidth
@@ -117,9 +118,9 @@ export const FoodForm = (props) => {
                 sx={{
                   '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
                     backgroundColor: 'white',
-                    border: 'solid 1px #656769',
+                    border: `solid 1px ${gray[900]}`,
                     height: '56px',
-                    boxShadow: '3px 3px 3px #ABAEB1',
+                    boxShadow: `3px 3px 3px ${gray[700]}`,
                   },
                 }}
               >
@@ -137,7 +138,7 @@ export const FoodForm = (props) => {
               item
               md={6}
               xs={12}
-              sx={{ paddingTop: '58px' }}
+              sx={{ paddingTop: '48px' }}
             >
               <TextField
                 fullWidth
@@ -146,9 +147,9 @@ export const FoodForm = (props) => {
                 sx={{
                   '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
                     backgroundColor: 'white',
-                    border: 'solid 1px #656769',
+                    border: `solid 1px ${gray[900]}`,
                     height: '56px',
-                    boxShadow: '3px 3px 3px #ABAEB1',
+                    boxShadow: `3px 3px 3px ${gray[700]}`,
                   },
                 }}
               >
