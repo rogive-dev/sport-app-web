@@ -15,6 +15,7 @@ import { Layout as DashboardLayout } from 'src/layouts/dashboard';
 import { FoodForm } from 'src/sections/dashboard/registry/food-form';
 import { SportForm } from 'src/sections/dashboard/registry/sport-form';
 import { DemographicForm } from 'src/sections/dashboard/registry/demographic-form';
+import { gray } from 'src/theme/colors';
 
 const tabs = [
   { label: 'Dieta', value: 'dieta' },
@@ -81,15 +82,15 @@ const Page = () => {
                   },
                   '& .css-1uhvit7-MuiButtonBase-root-MuiTab-root': {
                     width: '250px',
-                    border: 'solid 1px #656769',
+                    border: `solid 1px ${gray[900]}`,
                     backgroundColor: 'white',
                     height: '33px',
                     minHeight: '33px',
-                    boxShadow: '3px 3px 3px #ABAEB1',
+                    boxShadow: `3px 3px 3px ${gray[700]}`,
                   },
                   '& .css-1uhvit7-MuiButtonBase-root-MuiTab-root.Mui-selected': {
-                    backgroundColor: '#f97316',
-                    border: 'solid 1px #f97316',
+                    backgroundColor: 'primary.main',
+                    border: 'solid 1px primary.main',
                     color: 'white'
                   },
                   '& .css-1uhvit7-MuiButtonBase-root-MuiTab-root+.css-1uhvit7-MuiButtonBase-root-MuiTab-root': {
@@ -122,7 +123,7 @@ const Page = () => {
               <Grid xs={12}>
                 <Stack
                   direction="row"
-                  justifyContent="space-between"
+                  justifyContent="center"
                   spacing={4}
                 >
                   <SportForm data={sportPreferences} />
@@ -133,7 +134,7 @@ const Page = () => {
               <Grid xs={12}>
                 <Stack
                   direction="row"
-                  justifyContent="space-between"
+                  justifyContent="center"
                   spacing={10}
                 >
                   <DemographicForm data={demographicPreferences} />
