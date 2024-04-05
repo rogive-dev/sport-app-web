@@ -6,6 +6,8 @@ import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Collapse from '@mui/material/Collapse';
 import SvgIcon from '@mui/material/SvgIcon';
+import { alpha } from '@mui/system/colorManipulator';
+import { orange } from 'src/theme/colors';
 
 import { RouterLink } from 'src/components/router-link';
 
@@ -180,14 +182,15 @@ export const SideNavItem = (props) => {
           py: '6px',
           textAlign: 'left',
           width: '100%',
+          height: '48px',
           ...(active && {
             ...(depth === 0 && {
-              backgroundColor: 'var(--nav-item-active-bg)',
+              backgroundColor: 'primary.main',
+              '& > span': {
+                color: 'white'
+              }
             }),
           }),
-          '&:hover': {
-            backgroundColor: 'var(--nav-item-hover-bg)',
-          },
         }}
         {...linkProps}
       >
