@@ -41,6 +41,7 @@ jobs:
   deploy-release:
     needs: build
     runs-on: ubuntu-latest
+    if: github.ref_type == 'branch' && startsWith(github.ref, 'refs/heads/release')
 
     steps:
       - name: Install Vercel CLI
