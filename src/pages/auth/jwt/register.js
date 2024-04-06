@@ -109,6 +109,7 @@ const Page = () => {
                   key={tab.value}
                   label={tab.label}
                   value={tab.value}
+                  disabled={tab.value === 'company'}
                 />
               ))}
             </Tabs>
