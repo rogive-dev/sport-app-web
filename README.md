@@ -57,3 +57,4 @@ Si deseas contribuir a este proyecto, por favor sigue los siguientes pasos:
 3. Realiza los cambios necesarios y realiza commits descriptivos.
 4. Envía tus cambios al repositorio remoto: git push origin nombre-de-la-rama.
 5. Abre un pull request en GitHub para que tus cambios sean revisados e integrados.
+.
