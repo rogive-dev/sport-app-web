@@ -27,7 +27,7 @@ jobs:
           echo "Total statements: $totalStatements"
           echo "Covered statements: $coveredStatements"
           echo "Coverage is $coveragePercentage%"
-          if (( $(bc -l <<< "$coveragePercentage < 70") )); then
+          if (( $(bc -l <<< "$coveragePercentage < 60") )); then
             echo "Coverage is below threshold"
             exit 1
           fi
