@@ -3,7 +3,9 @@ name: Continuous Integration
 on:
   pull_request:
     branches:
+      - main
       - dev
+      - release/*
 
 jobs:
   build:
@@ -33,4 +35,4 @@ jobs:
           fi
 
       - name: Build
-        run: npm run prod
+        run: npm run build
