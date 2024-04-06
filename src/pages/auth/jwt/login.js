@@ -22,7 +22,7 @@ import { Issuer } from 'src/utils/auth';
 import { gray } from 'src/theme/colors';
 
 const initialValues = {
-  email: 'demo@devias.io',
+  email: 'rogive@sportapp.com',
   password: 'Password123!',
   submit: null,
 };
@@ -40,6 +40,7 @@ const Page = () => {
     initialValues,
     validationSchema,
     onSubmit: async (values, helpers) => {
+      console.log("flag-1")
       try {
         await signIn(values.email, values.password);
 

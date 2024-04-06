@@ -25,7 +25,7 @@ export const Modal6 = () => (
       }}
     >
       <Box sx={{ p: 2 }}>
-        <Typography variant="subtitle2">demo@devias.io</Typography>
+        <Typography variant="subtitle2">rogive@sportapp.com</Typography>
         <Typography
           color="text.secondary"
           variant="subtitle2"
