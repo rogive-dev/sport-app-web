@@ -9,6 +9,8 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { gray } from 'src/theme/colors';
 
 import { wait } from 'src/utils/wait';
 
@@ -16,7 +18,7 @@ export const DemographicForm = (props) => {
   const { foodPreferences, ...other } = props;
   const formik = useFormik({
     initialValues: {
-      address1: foodPreferences?.address1 || '',
+      estatura: foodPreferences?.estatura || '',
       address2: foodPreferences?.address2 || '',
       country: foodPreferences?.country || '',
       email: foodPreferences?.email || '',
@@ -28,7 +30,7 @@ export const DemographicForm = (props) => {
       submit: null,
     },
     validationSchema: Yup.object({
-      address1: Yup.string().max(255),
+      estatura: Yup.string().max(255),
       address2: Yup.string().max(255),
       country: Yup.string().max(255),
       email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
@@ -89,7 +91,7 @@ export const DemographicForm = (props) => {
       onSubmit={formik.handleSubmit}
       {...other}
     >
-        <CardContent sx={{ width: "900px", pt: 0 }}>
+        <CardContent sx={{ width: "886px", pt: 0,  padding: '0',}}>
           <Grid
             container
             spacing={3}
@@ -100,7 +102,7 @@ export const DemographicForm = (props) => {
             >
               <CardMedia
                 image="/assets/banners/demographic-banner.png"
-                sx={{ height: 150 }}
+                sx={{ height: 150, borderRadius: '12px'}}
               />
             </Grid>
             <Grid
@@ -112,17 +114,42 @@ export const DemographicForm = (props) => {
               <Grid
                 item
                 xs={12}
+                sx={{
+                  paddingTop: '10px',
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: 'primary.main',
+                    paddingTop: 0,
+                  }}
+                >
+                  Perfil
+                </Typography>
+              </Grid>
+              <Grid
+                item
+                xs={12}
                 md={6}
               >
                 <TextField
-                  error={!!(formik.touched.address1 && formik.errors.address1)}
+                  error={!!(formik.touched.estatura && formik.errors.estatura)}
                   fullWidth
-                  helperText={formik.touched.address1 && formik.errors.address1}
-                  label="Address 1"
-                  name="address1"
+                  helperText={formik.touched.estatura && formik.errors.estatura}
+                  label="Estatura(mt)"
+                  name="estatura"
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
-                  value={formik.values.address1}
+                  value={formik.values.estatura}
+                  sx={{
+                    '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                      backgroundColor: 'white',
+                      border: `solid 1px ${gray[900]}`,
+                      height: '56px',
+                      boxShadow: `3px 3px 3px ${gray[700]}`,
+                    },
+                  }}
                 />
               </Grid>
               <Grid
@@ -131,24 +158,41 @@ export const DemographicForm = (props) => {
                 md={6}
               >
                 <TextField
-                  error={!!(formik.touched.address2 && formik.errors.address2)}
+                  error={!!(formik.touched.peso && formik.errors.peso)}
                   fullWidth
-                  helperText={formik.touched.address2 && formik.errors.address2}
-                  label="Address 2"
-                  name="address2"
+                  helperText={formik.touched.peso && formik.errors.peso}
+                  label="Peso(kg)"
+                  name="peso"
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
-                  value={formik.values.address2}
+                  value={formik.values.peso}
+                  sx={{
+                    '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                      backgroundColor: 'white',
+                      border: `solid 1px ${gray[900]}`,
+                      height: '56px',
+                      boxShadow: `3px 3px 3px ${gray[700]}`,
+                    },
+                  }}
                 />
               </Grid>
               <Grid
                 item
                 xs={12}
+                sx={{ paddingTop: '15px' }}
               >
                 <TextField
                   fullWidth
-                  label="Category"
+                  label="Ciudad de Residencia"
                   select
+                  sx={{
+                    '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                      backgroundColor: 'white',
+                      border: `solid 1px ${gray[900]}`,
+                      height: '56px',
+                      boxShadow: `3px 3px 3px ${gray[700]}`,
+                    },
+                  }}
                 >
                   {dietOptions.map((option) => (
                     <MenuItem
@@ -163,11 +207,20 @@ export const DemographicForm = (props) => {
               <Grid
                 item
                 xs={12}
+                sx={{ paddingTop: '15px' }}
               >
                 <TextField
                   fullWidth
-                  label="Category"
+                  label="Ciudad de Nacimiento"
                   select
+                  sx={{
+                    '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                      backgroundColor: 'white',
+                      border: `solid 1px ${gray[900]}`,
+                      height: '56px',
+                      boxShadow: `3px 3px 3px ${gray[700]}`,
+                    },
+                  }}
                 >
                   {foodOptions.map((option) => (
                     <MenuItem
@@ -182,11 +235,20 @@ export const DemographicForm = (props) => {
               <Grid
                 item
                 xs={9}
+                sx={{ paddingTop: '15px' }}
               >
                 <TextField
                   fullWidth
-                  label="Category"
+                  label="Edad"
                   select
+                  sx={{
+                    '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                      backgroundColor: 'white',
+                      border: `solid 1px ${gray[900]}`,
+                      height: '56px',
+                      boxShadow: `3px 3px 3px ${gray[700]}`,
+                    },
+                  }}
                 >
                   {foodOptions.map((option) => (
                     <MenuItem
@@ -200,6 +262,7 @@ export const DemographicForm = (props) => {
               </Grid>
               <Grid
                 xs={3}
+                sx={{ paddingTop: '15px' }}
               >
                 <TextField
                   error={!!(formik.touched.address2 && formik.errors.address2)}
@@ -210,6 +273,14 @@ export const DemographicForm = (props) => {
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
                   value={formik.values.address2}
+                  sx={{
+                    '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                      backgroundColor: 'white',
+                      border: `solid 1px ${gray[900]}`,
+                      height: '56px',
+                      boxShadow: `3px 3px 3px ${gray[700]}`,
+                    },
+                  }}
                 />
               </Grid>
             </Grid>
@@ -218,85 +289,150 @@ export const DemographicForm = (props) => {
               item
               md={6}
               xs={12}
+              sx={{
+                height: '290px',
+              }}
             >
               <Grid
                 item
                 xs={12}
+                sx={{
+                  paddingTop: '10px',
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: 'primary.main',
+                    paddingTop: 0,
+                  }}
+                >
+                  Química de la sangre
+                </Typography>
+              </Grid>
+              <Grid
+                item
+                xs={12}
                 md={6}
+                sx={{ paddingTop: '8px' }}
               >
                 <TextField
-                  error={!!(formik.touched.address1 && formik.errors.address1)}
+                  error={!!(formik.touched.glucosa && formik.errors.glucosa)}
                   fullWidth
-                  helperText={formik.touched.address1 && formik.errors.address1}
-                  label="Address 1"
-                  name="address1"
+                  helperText={formik.touched.glucosa && formik.errors.glucosa}
+                  label="Glucosa"
+                  name="glucosa"
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
-                  value={formik.values.address1}
+                  value={formik.values.glucosa}
+                  sx={{
+                    '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                      backgroundColor: 'white',
+                      border: `solid 1px ${gray[900]}`,
+                      height: '56px',
+                      boxShadow: `3px 3px 3px ${gray[700]}`,
+                    },
+                  }}
                 />
               </Grid>
               <Grid
                 item
                 xs={12}
                 md={6}
+                sx={{ paddingTop: '8px' }}
               >
                 <TextField
-                  error={!!(formik.touched.address2 && formik.errors.address2)}
+                  error={!!(formik.touched.acidoUrico && formik.errors.acidoUrico)}
                   fullWidth
-                  helperText={formik.touched.address2 && formik.errors.address2}
-                  label="Address 2"
-                  name="address2"
+                  helperText={formik.touched.acidoUrico && formik.errors.acidoUrico}
+                  label="Ácido Úrico"
+                  name="acidoUrico"
+                  onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  value={formik.values.acidoUrico}
+                  sx={{
+                    '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                      backgroundColor: 'white',
+                      border: `solid 1px ${gray[900]}`,
+                      height: '56px',
+                      boxShadow: `3px 3px 3px ${gray[700]}`,
+                    },
+                  }}
+                />
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                md={6}
+                sx={{ paddingTop: '0' }}
+              >
+                <TextField
+                  error={!!(formik.touched.urea && formik.errors.urea)}
+                  fullWidth
+                  helperText={formik.touched.urea && formik.errors.urea}
+                  label="Urea"
+                  name="urea"
+                  onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  value={formik.values.urea}
+                  sx={{
+                    '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                      backgroundColor: 'white',
+                      border: `solid 1px ${gray[900]}`,
+                      height: '56px',
+                      boxShadow: `3px 3px 3px ${gray[700]}`,
+                    },
+                  }}
+                />
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                md={6}
+                sx={{ paddingTop: '0' }}
+              >
+                <TextField
+                  error={!!(formik.touched.Colesterol && formik.errors.Colesterol)}
+                  fullWidth
+                  helperText={formik.touched.Colesterol && formik.errors.Colesterol}
+                  label="Colesterol"
+                  name="Colesterol"
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
                   value={formik.values.address2}
+                  sx={{
+                    '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                      backgroundColor: 'white',
+                      border: `solid 1px ${gray[900]}`,
+                      height: '56px',
+                      boxShadow: `3px 3px 3px ${gray[700]}`,
+                    },
+                  }}
                 />
               </Grid>
               <Grid
                 item
                 xs={12}
                 md={6}
+                sx={{ paddingTop: '0' }}
               >
                 <TextField
-                  error={!!(formik.touched.address1 && formik.errors.address1)}
+                  error={!!(formik.touched.trigliceridos && formik.errors.trigliceridos)}
                   fullWidth
-                  helperText={formik.touched.address1 && formik.errors.address1}
-                  label="Address 1"
-                  name="address1"
+                  helperText={formik.touched.trigliceridos && formik.errors.trigliceridos}
+                  label="Triglicéridos"
+                  name="trigliceridos"
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
-                  value={formik.values.address1}
-                />
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                md={6}
-              >
-                <TextField
-                  error={!!(formik.touched.address2 && formik.errors.address2)}
-                  fullWidth
-                  helperText={formik.touched.address2 && formik.errors.address2}
-                  label="Address 2"
-                  name="address2"
-                  onBlur={formik.handleBlur}
-                  onChange={formik.handleChange}
-                  value={formik.values.address2}
-                />
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                md={6}
-              >
-                <TextField
-                  error={!!(formik.touched.address1 && formik.errors.address1)}
-                  fullWidth
-                  helperText={formik.touched.address1 && formik.errors.address1}
-                  label="Address 1"
-                  name="address1"
-                  onBlur={formik.handleBlur}
-                  onChange={formik.handleChange}
-                  value={formik.values.address1}
+                  value={formik.values.trigliceridos}
+                  sx={{
+                    '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                      backgroundColor: 'white',
+                      border: `solid 1px ${gray[900]}`,
+                      height: '56px',
+                      boxShadow: `3px 3px 3px ${gray[700]}`,
+                    },
+                  }}
                 />
               </Grid>
             </Grid>
@@ -309,12 +445,13 @@ export const DemographicForm = (props) => {
           }}
           flexWrap="wrap"
           spacing={3}
-          sx={{ p: 3 }}
+          sx={{ p: 3, justifyContent: 'center', paddingTop: '35px' }}
         >
           <Button
             disabled={formik.isSubmitting}
             type="submit"
             variant="contained"
+            sx={{ width: '106px', height: '36px', borderRadius: '8px'}}
           >
             Guardar
           </Button>

@@ -15,6 +15,7 @@ import { Layout as DashboardLayout } from 'src/layouts/dashboard';
 import { FoodForm } from 'src/sections/dashboard/registry/food-form';
 import { SportForm } from 'src/sections/dashboard/registry/sport-form';
 import { DemographicForm } from 'src/sections/dashboard/registry/demographic-form';
+import { gray } from 'src/theme/colors';
 
 const tabs = [
   { label: 'Dieta', value: 'dieta' },
@@ -44,6 +45,7 @@ const Page = () => {
           backgroundColor: 'neutral.100',
           flexGrow: 1,
           py: 8,
+          paddingTop: '32px'
         }}
       >
         <Container maxWidth={settings.stretch ? false : 'xl'}>
@@ -62,9 +64,39 @@ const Page = () => {
                 indicatorColor="primary"
                 onChange={handleTabsChange}
                 scrollButtons="auto"
+                TabIndicatorProps={{
+                  style: { display: 'none' }
+                }}
                 textColor="primary"
                 value={currentTab}
                 variant="scrollable"
+                sx={{
+                  '& .css-heg063-MuiTabs-flexContainer': {
+                    justifyContent: 'center',
+                    '& > .css-1uhvit7-MuiButtonBase-root-MuiTab-root:first-child': {
+                      borderRadius: '50px 0 0 50px',
+                    },
+                    '& > .css-1uhvit7-MuiButtonBase-root-MuiTab-root:last-child': {
+                      borderRadius: '0 50px 50px 0',
+                    },
+                  },
+                  '& .css-1uhvit7-MuiButtonBase-root-MuiTab-root': {
+                    width: '250px',
+                    border: `solid 1px ${gray[900]}`,
+                    backgroundColor: 'white',
+                    height: '33px',
+                    minHeight: '33px',
+                    boxShadow: `3px 3px 3px ${gray[700]}`,
+                  },
+                  '& .css-1uhvit7-MuiButtonBase-root-MuiTab-root.Mui-selected': {
+                    backgroundColor: 'primary.main',
+                    border: 'solid 1px primary.main',
+                    color: 'white'
+                  },
+                  '& .css-1uhvit7-MuiButtonBase-root-MuiTab-root+.css-1uhvit7-MuiButtonBase-root-MuiTab-root': {
+                    marginLeft: '0px'
+                  },
+                }}
               >
                 {tabs.map((tab) => (
                   <Tab
@@ -80,7 +112,7 @@ const Page = () => {
               <Grid xs={12}>
                 <Stack
                   direction="row"
-                  justifyContent="space-between"
+                  justifyContent="center"
                   spacing={4}
                 >
                   <FoodForm data={foodPreferences} />
@@ -91,7 +123,7 @@ const Page = () => {
               <Grid xs={12}>
                 <Stack
                   direction="row"
-                  justifyContent="space-between"
+                  justifyContent="center"
                   spacing={4}
                 >
                   <SportForm data={sportPreferences} />
@@ -102,7 +134,7 @@ const Page = () => {
               <Grid xs={12}>
                 <Stack
                   direction="row"
-                  justifyContent="space-between"
+                  justifyContent="center"
                   spacing={10}
                 >
                   <DemographicForm data={demographicPreferences} />

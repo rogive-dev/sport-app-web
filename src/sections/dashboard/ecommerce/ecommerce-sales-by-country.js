@@ -14,7 +14,7 @@ const flagMap = {
   au: '/assets/flags/flag-au.svg',
   ca: '/assets/flags/flag-ca.svg',
   de: '/assets/flags/flag-de.svg',
-  es: '/assets/flags/flag-es.svg',
+  es: '/assets/flags/flag-co.svg',
   in: '/assets/flags/flag-in.svg',
   ru: '/assets/flags/flag-ru.svg',
   uk: '/assets/flags/flag-uk.svg',

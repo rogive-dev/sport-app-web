@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { styled } from '@mui/material/styles';
 
+import { withAuthGuard } from 'src/hocs/with-auth-guard';
+
 import { Footer } from './footer';
 import { SideNav } from './side-nav';
 import { TopNav } from './top-nav';
@@ -12,7 +14,7 @@ const LayoutRoot = styled('div')(({ theme }) => ({
   height: '100%',
 }));
 
-export const Layout = (props) => {
+export const Layout = withAuthGuard((props) => {
   const { children } = props;
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'));
   const mobileNav = useMobileNav();
@@ -32,7 +34,7 @@ export const Layout = (props) => {
       </LayoutRoot>
     </>
   );
-};
+});
 
 Layout.propTypes = {
   children: PropTypes.node,

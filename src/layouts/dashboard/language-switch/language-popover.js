@@ -12,17 +12,17 @@ import Typography from '@mui/material/Typography';
 import { tokens } from 'src/locales/tokens';
 
 const languageOptions = {
-  en: {
-    icon: '/assets/flags/flag-uk.svg',
-    label: 'English',
+  pt: {
+    icon: '/assets/flags/flag-br.svg',
+    label: 'Brasil',
   },
-  de: {
-    icon: '/assets/flags/flag-de.svg',
-    label: 'German',
+  escl: {
+    icon: '/assets/flags/flag-cl.svg',
+    label: 'Chile',
   },
   es: {
-    icon: '/assets/flags/flag-es.svg',
-    label: 'Spanish',
+    icon: '/assets/flags/flag-co.svg',
+    label: 'Colombia',
   },
 };
 

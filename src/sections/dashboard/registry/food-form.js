@@ -9,6 +9,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import CardMedia from '@mui/material/CardMedia';
+import { gray } from 'src/theme/colors';
 
 import { wait } from 'src/utils/wait';
 
@@ -89,7 +90,7 @@ export const FoodForm = (props) => {
       onSubmit={formik.handleSubmit}
       {...other}
     >
-        <CardContent sx={{ width: "800px", pt: 0 }}>
+        <CardContent sx={{ width: "750px", pt: 0,  padding: '0',}}>
           <Grid
             container
             spacing={3}
@@ -101,18 +102,27 @@ export const FoodForm = (props) => {
             >
               <CardMedia
                 image="/assets/banners/food-banner.png"
-                sx={{ height: 150 }}
+                sx={{ height: 150, borderRadius: '12px'}}
               />
             </Grid>
             <Grid
               item
               md={6}
               xs={12}
+              sx={{ paddingTop: '48px' }}
             >
               <TextField
                 fullWidth
-                label="Category"
+                label="Dieta"
                 select
+                sx={{
+                  '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                    backgroundColor: 'white',
+                    border: `solid 1px ${gray[900]}`,
+                    height: '56px',
+                    boxShadow: `3px 3px 3px ${gray[700]}`,
+                  },
+                }}
               >
                 {dietOptions.map((option) => (
                   <MenuItem
@@ -128,11 +138,20 @@ export const FoodForm = (props) => {
               item
               md={6}
               xs={12}
+              sx={{ paddingTop: '48px' }}
             >
               <TextField
                 fullWidth
-                label="Category"
+                label="Comida Preferida"
                 select
+                sx={{
+                  '& .css-298dwa-MuiInputBase-root-MuiFilledInput-root': {
+                    backgroundColor: 'white',
+                    border: `solid 1px ${gray[900]}`,
+                    height: '56px',
+                    boxShadow: `3px 3px 3px ${gray[700]}`,
+                  },
+                }}
               >
                 {foodOptions.map((option) => (
                   <MenuItem
@@ -153,12 +172,13 @@ export const FoodForm = (props) => {
           }}
           flexWrap="wrap"
           spacing={3}
-          sx={{ p: 3 }}
+          sx={{ p: 3, paddingTop: '80px', justifyContent: 'center'}}
         >
           <Button
             disabled={formik.isSubmitting}
             type="submit"
             variant="contained"
+            sx={{ width: '106px', height: '36px', borderRadius: '8px'}}
           >
             Guardar
           </Button>

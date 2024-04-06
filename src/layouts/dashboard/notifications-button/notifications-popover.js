@@ -77,7 +77,7 @@ const renderContent = (notification) => {
         </>
       );
     }
-    case 'new_feature': {
+    case 'new_plan': {
       const createdAt = format(notification.createdAt, 'MMM dd, h:mm a');
 
       return (
@@ -102,7 +102,50 @@ const renderContent = (notification) => {
                   variant="subtitle2"
                   sx={{ mr: 0.5 }}
                 >
-                  New feature!
+                  Tienes un nuevo plan de entrenamiento!
+                </Typography>
+                <Typography variant="body2">{notification.description}</Typography>
+              </Box>
+            }
+            secondary={
+              <Typography
+                color="text.secondary"
+                variant="caption"
+              >
+                {createdAt}
+              </Typography>
+            }
+            sx={{ my: 0 }}
+          />
+        </>
+      );
+    }
+    case 'new_event': {
+      const createdAt = format(notification.createdAt, 'MMM dd, h:mm a');
+
+      return (
+        <>
+          <ListItemAvatar sx={{ mt: 0.5 }}>
+            <Avatar>
+              <SvgIcon>
+                <MessageChatSquareIcon />
+              </SvgIcon>
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText
+            primary={
+              <Box
+                sx={{
+                  alignItems: 'center',
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                }}
+              >
+                <Typography
+                  variant="subtitle2"
+                  sx={{ mr: 0.5 }}
+                >
+                  Hay un evento cerca de tu ubicación
                 </Typography>
                 <Typography variant="body2">{notification.description}</Typography>
               </Box>

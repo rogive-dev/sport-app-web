@@ -18,7 +18,7 @@ import { Layout as AuthLayout } from 'src/layouts/auth/classic-layout';
 import { paths } from 'src/paths';
 
 const initialValues = {
-  email: 'demo@devias.io',
+  email: 'rogive@sportapp.com',
   password: 'Password123!',
   submit: null,
 };

@@ -83,7 +83,7 @@ export const AccountPopover = (props) => {
           color="text.secondary"
           variant="body2"
         >
-          demo@devias.io
+          rogive@sportapp.com
         </Typography>
       </Box>
       <Divider />
