@@ -110,7 +110,11 @@ const Page = () => {
                   justifyContent="center"
                   spacing={4}
                 >
-                  <iframe src="/assets/pdf/plan-de-entrenamiento.pdf" width="90%" height="600px" />
+                  <iframe
+                    src="/assets/pdf/plan-de-entrenamiento.pdf"
+                    width="90%"
+                    height="600px"
+                  />
                 </Stack>
                 <Box sx={{ flexGrow: 1 }}>
                 </Box>
